@@ -16,15 +16,38 @@ const propTypes = {
   refCallback: PropTypes.func,
 };
 
-const Scroll = ({
-  children,
-  refCallback,
-  ...customProps
-}) => (
-  <div {...customProps} className={cx(['scroll', customProps.className])} ref={refCallback}>
-    {children}
-  </div>
-);
+const Scroll = ({ children, refCallback, ...customProps }) => {
+  let debounce;
+  let originalPointerEvents;
+
+  const scrollableElementRef = (element) => {
+    originalPointerEvents = element.style.pointerEvents;
+    if (refCallback) {
+      refCallback(element);
+    }
+  };
+
+  const handleOnScroll = (event) => {
+    clearTimeout(debounce);
+
+    const scrollElement = event.target;
+    scrollElement.style.pointerEvents = 'none'; // Suppress Pointer Events.
+    debounce = setTimeout(() => {
+      scrollElement.style.pointerEvents = originalPointerEvents; // Restore Pointer Events.
+    }, 2000);
+  };
+
+  return (
+    <div
+      {...customProps}
+      className={cx(['scroll', customProps.className])}
+      ref={scrollableElementRef}
+      onScroll={handleOnScroll}
+    >
+      {children}
+    </div>
+  );
+};
 
 Scroll.propTypes = propTypes;
 
