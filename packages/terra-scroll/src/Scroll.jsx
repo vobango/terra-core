@@ -34,7 +34,7 @@ const Scroll = ({ children, refCallback, ...customProps }) => {
     scrollElement.style.pointerEvents = 'none'; // Suppress Pointer Events.
     debounce = setTimeout(() => {
       scrollElement.style.pointerEvents = originalPointerEvents; // Restore Pointer Events.
-    }, 2000);
+    }, 50);
   };
 
   return (
