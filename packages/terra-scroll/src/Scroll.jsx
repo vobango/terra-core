@@ -21,7 +21,10 @@ const Scroll = ({ children, refCallback, ...customProps }) => {
   let originalPointerEvents;
 
   const scrollableElementRef = (element) => {
-    originalPointerEvents = element.style.pointerEvents;
+    if (element) {
+      originalPointerEvents = element.style.pointerEvents;
+    }
+
     if (refCallback) {
       refCallback(element);
     }
@@ -33,7 +36,9 @@ const Scroll = ({ children, refCallback, ...customProps }) => {
     const scrollElement = event.target;
     scrollElement.style.pointerEvents = 'none'; // Suppress Pointer Events.
     debounce = setTimeout(() => {
-      scrollElement.style.pointerEvents = originalPointerEvents; // Restore Pointer Events.
+      if (originalPointerEvents !== null) {
+        scrollElement.style.pointerEvents = originalPointerEvents; // Restore Pointer Events.
+      }
     }, 50);
   };
 
