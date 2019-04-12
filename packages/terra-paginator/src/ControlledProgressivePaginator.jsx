@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import ResponsiveElement from 'terra-responsive-element';
 import KeyCode from 'keycode-js';
+import IconPrevious from 'terra-icon/lib/icon/IconPrevious';
+import IconNext from 'terra-icon/lib/icon/IconNext';
+import Button from '../../terra-button';
 import styles from './Paginator.module.scss';
 import { calculatePages } from './_paginationUtils';
-
 
 const cx = classNames.bind(styles);
 
@@ -26,6 +28,15 @@ const propTypes = {
    * Total number of items per page.
    */
   itemCountPerPage: PropTypes.number.isRequired,
+};
+
+const contextTypes = {
+  /* eslint-disable consistent-return */
+  intl: (context) => {
+    if (context.intl === undefined) {
+      return new Error('Component is internationalized, and must be wrapped in terra-base');
+    }
+  },
 };
 
 class ProgressivePaginator extends React.Component {
@@ -64,68 +75,63 @@ class ProgressivePaginator extends React.Component {
     };
   }
 
-  // TODO: Resolve lint issues - https://github.com/cerner/terra-core/issues/1689
-  /* eslint-disable jsx-a11y/no-static-element-interactions, jsx-a11y/anchor-is-valid, jsx-a11y/no-noninteractive-tabindex */
   defaultProgressivePaginator() {
     const totalPages = calculatePages(this.props.totalCount, this.props.itemCountPerPage);
     const { selectedPage } = this.props;
     const previousPageIndex = selectedPage === 1 ? 1 : selectedPage - 1;
     const nextPageIndex = selectedPage === totalPages ? totalPages : selectedPage + 1;
+    const areLeftControlsDisabled = selectedPage === 1;
+    const areRightControlsDisabled = selectedPage === totalPages;
 
     return (
       <div className={cx(['paginator', 'progressive'])} role="navigation" aria-label="pagination">
         <div>
-          Page
-          {' '}
-          {selectedPage}
-          {' '}
-of
-          {' '}
-          {totalPages}
+          {this.context.intl.formatMessage({ id: 'Terra.paginator.pageCount' }, { selectedPage, totalPages })}
         </div>
         <div>
-          <a
-            aria-disabled={selectedPage === 1}
+          <Button
+            className={cx(['nav-link', areLeftControlsDisabled && 'is-disabled'])}
+            isDisabled={areLeftControlsDisabled}
+            aria-disabled={areLeftControlsDisabled}
             aria-label="first"
-            className={cx(['nav-link', selectedPage === 1 ? 'is-disabled' : null])}
-            tabIndex={selectedPage === 1 ? null : '0'}
+            tabIndex={areLeftControlsDisabled ? null : '0'}
             onClick={this.handlePageChange(1)}
             onKeyDown={this.handleOnKeyDown(1)}
-          >
-            First
-          </a>
-          <a
-            aria-disabled={selectedPage === 1}
+            text={this.context.intl.formatMessage({ id: 'Terra.paginator.first' })}
+          />
+          <Button
+            className={cx(['nav-link', 'previous', areLeftControlsDisabled && 'is-disabled'])}
+            icon={<IconPrevious />}
+            isDisabled={areLeftControlsDisabled}
+            aria-disabled={areLeftControlsDisabled}
             aria-label="previous"
-            className={cx(['nav-link', 'previous', selectedPage === 1 ? 'is-disabled' : null])}
-            tabIndex={selectedPage === 1 ? null : '0'}
+            tabIndex={areLeftControlsDisabled ? null : '0'}
             onClick={this.handlePageChange(previousPageIndex)}
             onKeyDown={this.handleOnKeyDown(previousPageIndex)}
-          >
-            <span className={cx('icon')} />
-Previous
-          </a>
-          <a
-            aria-disabled={selectedPage === totalPages}
+            text={this.context.intl.formatMessage({ id: 'Terra.paginator.previous' })}
+          />
+          <Button
+            className={cx(['nav-link', 'next'])}
+            icon={<IconNext />}
+            isReversed
+            isDisabled={areRightControlsDisabled}
+            aria-disabled={areRightControlsDisabled}
             aria-label="next"
-            className={cx(['nav-link', 'next', selectedPage === totalPages ? 'is-disabled' : null])}
-            tabIndex={selectedPage === totalPages ? null : '0'}
+            tabIndex={areRightControlsDisabled ? null : '0'}
             onClick={this.handlePageChange(nextPageIndex)}
             onKeyDown={this.handleOnKeyDown(nextPageIndex)}
-          >
-            Next
-            <span className={cx('icon')} />
-          </a>
-          <a
-            aria-disabled={selectedPage === totalPages}
+            text={this.context.intl.formatMessage({ id: 'Terra.paginator.next' })}
+          />
+          <Button
+            className={cx(['nav-link', areRightControlsDisabled && 'is-disabled'])}
+            isDisabled={areRightControlsDisabled}
+            aria-disabled={areRightControlsDisabled}
             aria-label="last"
-            className={cx(['nav-link', selectedPage === totalPages ? 'is-disabled' : null])}
-            tabIndex={selectedPage === totalPages ? null : '0'}
+            tabIndex={areRightControlsDisabled ? null : '0'}
             onClick={this.handlePageChange(totalPages)}
             onKeyDown={this.handleOnKeyDown(totalPages)}
-          >
-            Last
-          </a>
+            text={this.context.intl.formatMessage({ id: 'Terra.paginator.last' })}
+          />
         </div>
       </div>
     );
@@ -136,68 +142,65 @@ Previous
     const { selectedPage } = this.props;
     const previousPageIndex = selectedPage === 1 ? 1 : selectedPage - 1;
     const nextPageIndex = selectedPage === totalPages ? totalPages : selectedPage + 1;
+    const areLeftControlsDisabled = selectedPage === 1;
+    const areRightControlsDisabled = selectedPage === totalPages;
 
     return (
       <div className={cx(['paginator'])} role="navigation" aria-label="pagination">
         <div>
-          <a
-            aria-disabled={selectedPage === 1}
+          <Button
+            className={cx(['nav-link', areLeftControlsDisabled && 'is-disabled'])}
+            isDisabled={areLeftControlsDisabled}
+            aria-disabled={areLeftControlsDisabled}
             aria-label="first"
-            className={cx(['nav-link', selectedPage === 1 ? 'is-disabled' : null])}
-            tabIndex={selectedPage === 1 ? null : '0'}
+            tabIndex={areLeftControlsDisabled ? null : '0'}
             onClick={this.handlePageChange(1)}
             onKeyDown={this.handleOnKeyDown(1)}
-          >
-            First
-          </a>
-          <a
-            aria-disabled={selectedPage === 1}
+            text={this.context.intl.formatMessage({ id: 'Terra.paginator.first' })}
+          />
+          <Button
+            className={cx(['nav-link', 'previous', areLeftControlsDisabled && 'is-disabled'])}
+            icon={<IconPrevious />}
+            isIconOnly
+            isDisabled={areLeftControlsDisabled}
+            aria-disabled={areLeftControlsDisabled}
             aria-label="previous"
-            className={cx(['nav-link', 'previous', 'icon-only', selectedPage === 1 ? 'is-disabled' : null])}
-            tabIndex={selectedPage === 1 ? null : '0'}
+            tabIndex={areLeftControlsDisabled ? null : '0'}
             onClick={this.handlePageChange(previousPageIndex)}
             onKeyDown={this.handleOnKeyDown(previousPageIndex)}
-          >
-            <span className={cx('visually-hidden')}>Previous</span>
-            <span className={cx('icon')} />
-          </a>
+            text={this.context.intl.formatMessage({ id: 'Terra.paginator.previous' })}
+          />
         </div>
         <div>
-          Page
-          {' '}
-          {selectedPage}
-          {' '}
-of
-          {' '}
-          {totalPages}
+          {this.context.intl.formatMessage({ id: 'Terra.paginator.pageCount' }, { selectedPage, totalPages })}
         </div>
         <div>
-          <a
-            aria-disabled={selectedPage === totalPages}
+          <Button
+            className={cx(['nav-link', 'next', areRightControlsDisabled && 'is-disabled'])}
+            icon={<IconNext />}
+            isIconOnly
+            isDisabled={areRightControlsDisabled}
+            aria-disabled={areRightControlsDisabled}
             aria-label="next"
-            className={cx(['nav-link', 'next', 'icon-only', selectedPage === totalPages ? 'is-disabled' : null])}
-            tabIndex={selectedPage === totalPages ? null : '0'}
+            tabIndex={areRightControlsDisabled ? null : '0'}
             onClick={this.handlePageChange(nextPageIndex)}
             onKeyDown={this.handleOnKeyDown(nextPageIndex)}
-          >
-            <span className={cx('visually-hidden')}>Next</span>
-            <span className={cx('icon')} />
-          </a>
-          <a
-            aria-disabled={selectedPage === totalPages}
+            text={this.context.intl.formatMessage({ id: 'Terra.paginator.next' })}
+          />
+          <Button
+            className={cx(['nav-link', areRightControlsDisabled && 'is-disabled'])}
+            isDisabled={areRightControlsDisabled}
+            aria-disabled={areRightControlsDisabled}
             aria-label="last"
-            className={cx(['nav-link', selectedPage === totalPages ? 'is-disabled' : null])}
-            tabIndex={selectedPage === totalPages ? null : '0'}
+            tabIndex={areRightControlsDisabled ? null : '0'}
             onClick={this.handlePageChange(totalPages)}
             onKeyDown={this.handleOnKeyDown(totalPages)}
-          >
-            Last
-          </a>
+            text={this.context.intl.formatMessage({ id: 'Terra.paginator.last' })}
+          />
         </div>
       </div>
     );
   }
-  /* eslint-enable jsx-a11y/no-static-element-interactions, jsx-a11y/anchor-is-valid, jsx-a11y/no-noninteractive-tabindex */
 
   render() {
     return <ResponsiveElement defaultElement={this.reducedProgressivePaginator()} tiny={this.defaultProgressivePaginator()} />;

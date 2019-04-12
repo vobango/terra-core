@@ -226,6 +226,11 @@ class Button extends React.Component {
       buttonTitle = title || text;
     }
 
+    let buttonAriaLabel = customProps['aria-label'];
+    if (isIconOnly || variant === 'utility') {
+      buttonAriaLabel = customProps['aria-label'] || text;
+    }
+
     const buttonLabel = (
       <span className={buttonLabelClasses}>
         {isReversed ? buttonText : buttonIcon }
@@ -243,7 +248,7 @@ class Button extends React.Component {
         disabled={isDisabled}
         tabIndex={isDisabled ? '-1' : undefined}
         aria-disabled={isDisabled}
-        aria-label={isIconOnly || variant === 'utility' ? text : null}
+        aria-label={buttonAriaLabel}
         onKeyDown={this.handleKeyDown}
         onKeyUp={this.handleKeyUp}
         onBlur={this.handleOnBlur}
