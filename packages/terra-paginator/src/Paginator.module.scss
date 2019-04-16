@@ -31,6 +31,7 @@
       color: var(--terra-paginator-nav-link-color, #0059a8);
       cursor: pointer;
       display: inline-block;
+      font-size: var(--terra-paginator-nav-link-font-size, 1rem);
       line-height: var(--terra-paginator-nav-link-line-height, 1.43);
       margin-left: var(--terra-paginator-nav-link-margin-left, 0.14285rem);
       margin-right: var(--terra-paginator-nav-link-margin-right, 0.14285rem);
@@ -60,7 +61,7 @@
       }
     }
 
-    .is-selected {
+    .nav-link.is-selected {
       color: var(--terra-paginator-nav-link-selected-color, inherit);
       cursor: auto;
       pointer-events: none;
@@ -74,7 +75,7 @@
       }
     }
 
-    .is-disabled {
+    .nav-link.is-disabled {
       color: var(--terra-paginator-nav-link-disabled-color, rgba(28, 31, 33, 0.2));
       cursor: default;
       pointer-events: none;
