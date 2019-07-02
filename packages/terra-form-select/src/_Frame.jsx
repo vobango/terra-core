@@ -260,8 +260,14 @@ class Frame extends React.Component {
     });
 
     // Tags and Comboboxes will select the current search value when the component loses focus.
+    const { searchValue } = this.state;
+    const { variant } = this.props;
     if (Util.shouldAddOptionOnBlur(this.props, this.state)) {
-      this.props.onSelect(this.state.searchValue);
+      this.props.onSelect(searchValue);
+    } else if (variant === Variants.COMBOBOX
+      && searchValue.trim().length === 0
+      && this.state.hasSearchChanged) {
+      this.props.onSelect('');
     }
   }
 
@@ -346,7 +352,6 @@ class Frame extends React.Component {
         return;
       }
     }
-
 
     this.setState({ isFocused: false });
 
