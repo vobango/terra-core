@@ -1,8 +1,8 @@
 const themeConfig = {
   generateScope: true,
   scoped: [
-    { name: 'terra-test-theme', 'test-selector' },
+    { name: 'terra-test-theme', scopeSelector: 'test-selector' },
   ],
-}
+};
 
 module.exports = themeConfig;
