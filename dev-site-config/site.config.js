@@ -13,6 +13,7 @@ const siteConfig = {
     themes: {
       'Default Theme': '',
       'Legacy Theme': 'terra-legacy-theme',
+      'Test Theme': 'terra-test-theme',
     },
   },
 
