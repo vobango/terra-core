@@ -1,5 +1,5 @@
 const themeConfig = {
-  generateScope: true,
+  generateScoped: true,
   scoped: [
     { name: 'terra-test-theme', scopeSelector: 'test-selector' },
   ],
