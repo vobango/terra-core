@@ -6,7 +6,7 @@ const themeHelpers = require('terra-toolkit/lib/wdio/services/TerraCommands/them
 
 const config = {
   ...toolkitWdio.config,
-  baseScreenshotDir: './tests/wdio/__snapshots__',
+  baseScreenshotDir: './tests/wdio/theme/orion-fusion-theme/__snapshots__',
   before: function (suite) {
     themeHelpers.setTheme('orion-fusion-theme');
   }
