@@ -42,6 +42,6 @@
     "test": "npm run test:jest && npm run test:wdio",
     "test:jest": "jest --config ../../jestconfig.js",
     "test:wdio": "../../node_modules/.bin/wdio ../../node_modules/terra-dev-site/config/wdio/wdio.conf.js",
-    "test:wdio-fusion-theme": "../../node_modules/.bin/wdio ../../wdio.conf.orion.fusion.js"
+    "test:wdio-fusion-theme": "../../node_modules/.bin/wdio ../../wdio.conf.orion.fusion.theme.js"
   }
 }
