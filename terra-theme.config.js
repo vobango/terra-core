@@ -1,8 +1,6 @@
 const themeConfig = {
   generateScopedThemes: true,
-  scoped: [
-    { name: 'terra-test-theme', scopeSelector: 'test-selector' },
-  ],
+  scoped: [{ name: 'orion-fusion-theme' }],
 };
 
 module.exports = themeConfig;
