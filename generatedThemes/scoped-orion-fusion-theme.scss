@@ -9,7 +9,7 @@
  *    .dockerignore
  *    .npmignore
  */
-.test-selector {
-  @import 'packages/terra-form-checkbox/themes/terra-test-theme/root-theme.scss';
-  @import 'packages/terra-form-radio/themes/terra-test-theme/root-theme.scss';
+.orion-fusion-theme {
+  @import 'packages/terra-form-checkbox/themes/orion-fusion-theme/root-theme.scss';
+  @import 'packages/terra-form-radio/themes/orion-fusion-theme/root-theme.scss';
 }

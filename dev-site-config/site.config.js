@@ -13,7 +13,7 @@ const siteConfig = {
     themes: {
       'Default Theme': '',
       'Legacy Theme': 'terra-legacy-theme',
-      'Test Theme': 'test-selector',
+      'Orion Fusion Theme': 'orion-fusion-theme',
     },
   },
 

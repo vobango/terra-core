@@ -9,4 +9,4 @@
  *    .dockerignore
  *    .npmignore
  */
-import './scoped-terra-test-theme.scss';
+import './scoped-orion-fusion-theme.scss';
