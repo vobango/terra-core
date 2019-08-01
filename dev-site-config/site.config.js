@@ -1,10 +1,5 @@
 
 const siteConfig = {
-
-  themeImports: [
-    '../packages/terra-legacy-theme/src/scoped-theme',
-  ],
-
   appConfig: {
 
     defaultTheme: 'Default Theme',
@@ -16,8 +11,6 @@ const siteConfig = {
       'Orion Fusion Theme': 'orion-fusion-theme',
     },
   },
-
-  filterSideMenu: true,
   includeTestEvidence: false,
 };
 
