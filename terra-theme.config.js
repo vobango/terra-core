@@ -1,5 +1,5 @@
 const themeConfig = {
-  generateScopedThemes: true,
+  generateScoped: true,
   scoped: [{ name: 'orion-fusion-theme' }],
 };
 

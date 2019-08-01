@@ -9,7 +9,7 @@ const config = {
   baseScreenshotDir: './tests/wdio/__snapshots__',
   before: function () {
 //    themeHelpers.setTheme('orion-fusion-theme');
-    global.browser.execute(`document.documentElement.classList.add('${themeSelector}')`);
+    global.browser.execute(`document.documentElement.classList.add('${orion-fusion-theme}')`);
   }
 };
 
