@@ -42,6 +42,6 @@
     "test": "npm run jest && npm run wdio",
     "jest": "jest --config ../../jestconfig.js",
     "wdio": "cd ../.. && npx wdio ./packages/$npm_package_name/wdio.conf.js",
-    "wdio-fusion": "cd ../.. && npx wdio ./packages/$npm_package_name/wdio.conf.js --theme='fusion'",
+    "wdio-fusion": "cd ../.. && npx wdio ./packages/$npm_package_name/wdio.conf.js --theme='fusion'"
   }
 }
