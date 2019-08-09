@@ -41,7 +41,7 @@
     "precompile": "rm -rf lib",
     "test": "npm run jest && npm run wdio",
     "jest": "jest --config ../../jestconfig.js",
-    "wdio": "cd ../.. && npx wdio ./packages/$npm_package_name/wdio.conf.js",
-    "wdio-fusion": "cd ../.. && npx wdio ./packages/$npm_package_name/wdio.conf.js --theme='fusion'"
+    "wdio": "NODE_ENV=production cd ../.. && npx wdio ./packages/$npm_package_name/wdio.conf.js",
+    "wdio-fusion": "THEME=fusion LOCALE=en cd ../.. && npx wdio ./packages/$npm_package_name/wdio.conf.js"
   }
 }
