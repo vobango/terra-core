@@ -43,6 +43,6 @@
     "test": "npm run jest && npm run wdio",
     "jest": "jest --config ../../jestconfig.js",
     "wdio": "NODE_ENV=production cd ../.. && npx wdio ./packages/$npm_package_name/wdio.conf.js",
-    "wdio-fusion": "cd ../.. && THEME=fusion npx wdio ./packages/$npm_package_name/wdio.conf.js"
+    "wdio-fusion": "cd ../.. && THEME=orion-fusion-theme npx wdio ./packages/$npm_package_name/wdio.conf.js"
   }
 }
