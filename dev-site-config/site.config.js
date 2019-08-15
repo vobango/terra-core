@@ -9,6 +9,7 @@ const siteConfig = {
       'Default Theme': '',
       'Legacy Theme': 'terra-legacy-theme',
       'Orion Fusion Theme': 'orion-fusion-theme',
+      'Derelict Theme': 'derelict-theme',
     },
   },
   includeTestEvidence: false,

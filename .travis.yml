@@ -5,6 +5,7 @@ services:
 branches:
   only:
     - master
+    - test-scope-theme-generation
 cache:
   directories:
     - $HOME/docker
@@ -34,7 +35,7 @@ jobs:
     - stage: danger lint and jest
       script:
         - travis_wait docker-compose run -e DANGER_GITHUB_API_TOKEN=$DANGER_GITHUB_API_TOKEN -e HAS_JOSH_K_SEAL_OF_APPROVAL=$HAS_JOSH_K_SEAL_OF_APPROVAL -e TRAVIS_PULL_REQUEST=$TRAVIS_PULL_REQUEST -e TRAVIS_REPO_SLUG=$TRAVIS_REPO_SLUG test-ci bash -c 'npm run danger && npm run lint && npm run jest'
-    - stage: wdio
+    - stage: wdio - default theme
       script:
         - travis_wait docker-compose run test-ci npm run wdio -- --suite suite1
     -
@@ -46,6 +47,18 @@ jobs:
     -
       script:
         - travis_wait docker-compose run test-ci npm run wdio -- --suite suite4
+    - stage: wdio - fusion theme
+      script:
+        - travis_wait docker-compose run test-ci npm run wdio-fusion -- --suite suite1
+    -
+      script:
+        - travis_wait docker-compose run test-ci npm run wdio-fusion -- --suite suite2
+    -
+      script:
+        - travis_wait docker-compose run test-ci npm run wdio-fusion -- --suite suite3
+    -
+      script:
+        - travis_wait docker-compose run test-ci npm run wdio-fusion -- --suite suite4
     - stage: deploy
       script: skip
       before_deploy:

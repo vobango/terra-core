@@ -64,7 +64,7 @@
     "start-static": "tt-serve-static --site ./build",
     "test": "npm run jest && npm run wdio",
     "wdio": "cross-env NODE_OPTIONS=--max-old-space-size=2048 wdio node_modules/terra-toolkit/config/wdio/wdio.conf.js",
-    "wdio-fusion": "cross-env NODE_OPTIONS=--max-old-space-size=2048 wdio node_modules/terra-toolkit/config/wdio/wdio.conf.js --theme='fusion'"
+    "wdio-fusion": "cross-env NODE_OPTIONS=--max-old-space-size=2048 THEME=orion-fusion-theme wdio node_modules/terra-toolkit/config/wdio/wdio.conf.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",

@@ -9,4 +9,3 @@
  *    .dockerignore
  *    .npmignore
  */
-import './scoped-orion-fusion-theme.scss';

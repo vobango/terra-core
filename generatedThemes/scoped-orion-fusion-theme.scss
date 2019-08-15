@@ -10,6 +10,5 @@
  *    .npmignore
  */
 .orion-fusion-theme {
-  @import 'packages/terra-form-checkbox/themes/orion-fusion-theme/root-theme.scss';
-  @import 'packages/terra-form-radio/themes/orion-fusion-theme/root-theme.scss';
+  @import '../packages/terra-form-radio/themes/orion-fusion-theme/-theme-variables.scss';
 }
