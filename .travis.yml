@@ -80,6 +80,7 @@ jobs:
         - 'rm -f $HOME/docker/*.tar.gz'
 stages:
   - build
+  - danger lint and jest
   - wdio
   - name: deploy
     if: type != pull_request
