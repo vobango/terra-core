@@ -3,6 +3,9 @@ ChangeLog
 
 Unreleased
 ----------
+### Added
+* Add theme files.
+
 ### Changed
 * Components updated to use `FormattedMessage` to interface with `react-intl's` `intl` context.
 * updated package.json test scripts
