@@ -80,6 +80,7 @@
     "pretest": "npm run lint",
     "postinstall": "link-parent-bin && npm run compile && npm run bootstrap:hoist",
     "release": "npm whoami && check-installed-dependencies && npm run compile && npm test && lerna publish",
+    "release:notes": "node scripts/release-notes/release-notes.js",
     "postrelease": "npm run docs && git add --all && git commit -m 'Update README.md'",
     "start": "tt-serve",
     "start-heroku": "tt-serve-static --port $PORT --site './build'",
