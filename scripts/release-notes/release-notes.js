@@ -30,7 +30,7 @@ logs.forEach((path) => {
     currentLine += 1;
   }
 
-  markdown += `## ${packageName} - ${version} \n\n${entries.join('\n\n')}`;
+  markdown += `## ${packageName} v${version} \n${entries.join('\n')}`;
 });
 
 // eslint-disable-next-line no-console
