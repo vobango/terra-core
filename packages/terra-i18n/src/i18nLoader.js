@@ -14,7 +14,7 @@ const permitParams = (locale, callback) => {
 }
 
 module.exports = (locale, callback, scope) => {
-  permitParams(callback);
+  permitParams(locale, callback);
 
   if (!global.Intl) {
     require('intl')
