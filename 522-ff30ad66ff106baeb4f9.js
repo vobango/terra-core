@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[522],{3130:function(e,t,a){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var d=f(a(0)),u=f(a(127)),n=f(a(884));function f(e){return e&&e.__esModule?e:{default:e}}t.default=function(){return d.default.createElement(u.default,{id:"is-deceased-image-avatar",alt:"user",image:n.default,isDeceased:!0})}},884:function(e,t,a){e.exports=a.p+"87ec563ff16c288f58b0747d553762d6.jpg"}}]);
+//# sourceMappingURL=522-ff30ad66ff106baeb4f9.js.map

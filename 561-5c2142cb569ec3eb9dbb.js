@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[561],{3129:function(e,t,a){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0;var u=n(a(0)),d=n(a(127));function n(e){return e&&e.__esModule?e:{default:e}}t.default=function(){return u.default.createElement(d.default,{id:"is-deceased-avatar",alt:"user",isDeceased:!0})}}}]);
+//# sourceMappingURL=561-5c2142cb569ec3eb9dbb.js.map

@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///packages/terra-dynamic-grid/lib/Region.module.scss"],"names":[],"mappings":";;AAAA,+CAGI,WAAY,CACZ,UAAW","file":"237-fcaf90cc2bd2338e7cc6.css","sourcesContent":[":local {\n  // to ensure content is consistent in terms of height and width with its parent region\n  .region-child-container {\n    height: 100%;\n    width: 100%;\n  }\n}\n"]}
